@@ -1,8 +1,6 @@
-require_relative 'lib/find/version'
-
 Gem::Specification.new do |spec|
   spec.name          = "find"
-  spec.version       = Find::VERSION
+  spec.version       = "0.1.0"
   spec.authors       = ['Kazuki Tsujimoto']
   spec.email         = ['kazuki@callcc.net']
 
