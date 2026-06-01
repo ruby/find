@@ -103,7 +103,6 @@ module Find
   # end
   # files.size    # => 6690
   # files.take(3) # => ["./KNOWNBUGS.rb", "./array.rb", "./ast.rb"]
-  # end
   # ```
   #
   def prune
