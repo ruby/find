@@ -194,6 +194,19 @@ class TestFind < Test::Unit::TestCase
     }
   end
 
+  def test_dangling_symlink_as_argument
+    Dir.mktmpdir {|d|
+      begin
+        File.symlink("foo", "#{d}/bar")
+      rescue NotImplementedError, Errno::EACCES
+        omit "symlink is not supported."
+      end
+      a = []
+      Find.find("#{d}/bar") {|f| a << f }
+      assert_equal(["#{d}/bar"], a)
+    }
+  end
+
   def test_dangling_symlink_stat_error
     Dir.mktmpdir {|d|
       begin
